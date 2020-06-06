@@ -1,5 +1,17 @@
 <template>
   <v-app>
+    <div class="d-flex justify-space-between pa-5 align-center">
+      <v-toolbar-title class="font-weight-bold">Blog</v-toolbar-title>
+      <div>
+        <v-btn text class="text-capitalize font-weight-bold">Home</v-btn>
+        <v-btn text class="text-capitalize font-weight-bold">Blog</v-btn>
+      </div>
+      <div>
+        <v-btn icon color="black">
+          <v-icon>mdi-login</v-icon>
+        </v-btn>
+      </div>
+    </div>
     <v-content>
       <v-container>
         <nuxt />

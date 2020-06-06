@@ -1,5 +1,10 @@
 <template>
-  <div>
-    <h1>Landing</h1>
-  </div>
+  <v-row>
+    <v-col>
+      <AppCarousel />
+    </v-col>
+  </v-row>
 </template>
+
+<script src="./Landing.js">
+</script>
