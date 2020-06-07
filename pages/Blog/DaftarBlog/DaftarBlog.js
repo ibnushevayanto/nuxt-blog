@@ -4,6 +4,14 @@ import {
 } from "vuex";
 
 export default {
+  asyncData(params, callback) {
+    console.log(params)
+    setTimeout(() => {
+      callback(null, {
+        success: true
+      })
+    }, 1000);
+  },
   components: {
     DaftarBlog
   },
@@ -11,5 +19,8 @@ export default {
     ...mapState({
       auth: state => state.auth
     })
-  }
+  },
+  data: () => ({
+    title: 'Asu'
+  })
 }
