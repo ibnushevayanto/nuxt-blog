@@ -12,8 +12,21 @@
               class="review-text"
             >Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias mollitia optio est omnis neque dignissimos quis itaque sit aut, architecto vel eius, nam tenetur non illum porro id laboriosam? Incidunt!</div>
           </v-card-text>
-          <v-card-actions>
+          <v-card-actions class="d-flex justify-space-between align-center">
             <v-btn class="text-capitalize" text>Read More</v-btn>
+            <div v-if="auth !== null">
+              <v-btn
+                icon
+                color="black"
+                x-small
+                @click="$router.push({name: 'ubah-blog', params: {id: index}})"
+              >
+                <v-icon>mdi-pencil</v-icon>
+              </v-btn>
+              <v-btn icon color="black" x-small>
+                <v-icon>mdi-trash-can-outline</v-icon>
+              </v-btn>
+            </div>
           </v-card-actions>
         </v-card>
       </v-col>
