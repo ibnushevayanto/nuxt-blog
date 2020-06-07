@@ -33,7 +33,7 @@
     </v-row>
     <v-row v-if="!allblog">
       <v-col>
-        <v-btn block depressed tile>View More</v-btn>
+        <v-btn block depressed tile @click="$router.push({name: 'blog'})">More</v-btn>
       </v-col>
     </v-row>
   </div>
