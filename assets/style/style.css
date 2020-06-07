@@ -1,0 +1,16 @@
+.review-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.active-menu {
+  border-bottom: 3px solid #333;
+  background-color: white;
+}
+
+.active-menu::before {
+  background-color: white;
+}
