@@ -13,7 +13,7 @@ export function createRouter() {
     mode: 'history',
     routes: [{
         path: '/',
-        redirect: 'landing'
+        redirect: 'home'
       },
       {
         path: '/home',

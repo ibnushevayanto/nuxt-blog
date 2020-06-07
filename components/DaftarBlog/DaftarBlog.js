@@ -5,9 +5,9 @@ export default {
       default: false,
       type: Boolean
     },
-    auth: {
-      default: null,
-      type: Object
+    isadmin: {
+      default: false,
+      type: Boolean
     }
   }
 }

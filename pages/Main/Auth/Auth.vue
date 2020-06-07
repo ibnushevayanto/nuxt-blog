@@ -11,8 +11,8 @@
                 </template>
               </v-switch>
             </div>
-            <v-text-field color="black" label="Username"></v-text-field>
-            <v-text-field color="black" label="Password"></v-text-field>
+            <v-text-field color="black" label="Email"></v-text-field>
+            <v-text-field color="black" label="Password" type="password"></v-text-field>
             <v-btn block depressed color="black white--text">{{(form.login) ? 'Login' : 'Register'}}</v-btn>
           </v-card-text>
         </v-card>

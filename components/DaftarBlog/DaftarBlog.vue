@@ -13,8 +13,12 @@
             >Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias mollitia optio est omnis neque dignissimos quis itaque sit aut, architecto vel eius, nam tenetur non illum porro id laboriosam? Incidunt!</div>
           </v-card-text>
           <v-card-actions class="d-flex justify-space-between align-center">
-            <v-btn class="text-capitalize" text>Read More</v-btn>
-            <div v-if="auth !== null">
+            <v-btn
+              class="text-capitalize"
+              text
+              @click="$router.push({name: 'detail-blog', params: {id: index}})"
+            >Read More</v-btn>
+            <div v-if="isadmin">
               <v-btn
                 icon
                 color="black"
