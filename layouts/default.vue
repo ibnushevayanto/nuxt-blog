@@ -26,7 +26,7 @@
         >Blog</v-btn>
       </div>
       <div>
-        <v-btn icon color="black">
+        <v-btn icon color="black" :to="{name: 'auth'}">
           <v-icon>mdi-login-variant</v-icon>
         </v-btn>
       </div>

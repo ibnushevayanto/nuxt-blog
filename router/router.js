@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Landing from '~/pages/Main/Landing/Landing.vue'
 import About from '~/pages/About/About.vue'
 import Blog from '~/pages/Blog/Blog.vue'
+import Auth from "~/pages/Main/Auth/Auth.vue";
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export function createRouter() {
         path: '/blog',
         name: 'blog',
         component: Blog
+      },
+      {
+        path: '/auth',
+        name: 'auth',
+        component: Auth
       }
     ]
   })
