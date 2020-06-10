@@ -14,7 +14,13 @@
     </v-row>
     <v-row>
       <v-col class="d-flex justify-center">
-        <FormBlog />
+        <FormBlog
+          :title_value="data.title"
+          :content_value="data.content"
+          :loading="loadingrequest"
+          :urlimage_value="data.urlimage"
+          @submit="editblog"
+        />
       </v-col>
     </v-row>
   </div>

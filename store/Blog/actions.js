@@ -48,5 +48,43 @@ export default {
         success: false
       }
     }
+  },
+  async detailblog(context, payload) {
+    try {
+      const data = await this.$axios.$get('https://nuxt-blog-6b95b.firebaseio.com/data/' + payload + ".json").then(res => {
+        return res
+      })
+
+      return {
+        success: true,
+        data
+      }
+
+    } catch (error) {
+      return {
+        success: false
+      }
+    }
+  },
+  async editblog({
+    commit
+  }, payload) {
+    try {
+      await this.$axios.$put('https://nuxt-blog-6b95b.firebaseio.com/data/' + payload.id + ".json", payload.data)
+
+      await commit('EDIT_DATA', {
+        id: payload.id,
+        data: payload.data
+      })
+
+      return {
+        sucess: true
+      }
+
+    } catch (error) {
+      return {
+        success: false
+      }
+    }
   }
 }
