@@ -2,7 +2,7 @@
   <div>
     <v-row justify="center">
       <v-col cols="4" v-for="(data, index) in data" :key="index">
-        <v-card flat>
+        <v-card flat height="100%">
           <v-img :src="data.urlimage"></v-img>
           <v-card-title>{{ data.title }}</v-card-title>
           <v-card-text>
@@ -23,7 +23,13 @@
               >
                 <v-icon>mdi-pencil</v-icon>
               </v-btn>
-              <v-btn icon color="black" x-small>
+              <v-btn
+                icon
+                color="black"
+                x-small
+                @click="deleteblog(data.id, index)"
+                :loading="loadingdelete.index === index"
+              >
                 <v-icon>mdi-trash-can-outline</v-icon>
               </v-btn>
             </div>

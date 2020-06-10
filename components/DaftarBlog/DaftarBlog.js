@@ -10,8 +10,23 @@ export default {
       type: Boolean
     },
     data: {
-      default: [],
-      type: Array
+      type: Array,
+      default: () => {
+        return []
+      },
+    }
+  },
+  data: () => ({
+    loadingdelete: {
+      index: null
+    }
+  }),
+  methods: {
+    async deleteblog(id, index) {
+      this.loadingdelete.index = index
+      await this.$store.dispatch('Blog/deleteblog', id).then(res => {
+        this.loadingdelete.index = null
+      })
     }
   }
 }

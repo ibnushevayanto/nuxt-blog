@@ -9,7 +9,6 @@ export default {
         success: true
       }
     } catch (error) {
-      console.log(error)
       return {
         success: false
       }
@@ -81,6 +80,23 @@ export default {
         sucess: true
       }
 
+    } catch (error) {
+      return {
+        success: false
+      }
+    }
+  },
+  async deleteblog({
+    commit
+  }, payload) {
+    try {
+      await this.$axios.$delete('https://nuxt-blog-6b95b.firebaseio.com/data/' + payload + '.json')
+
+      await commit('DELETE_BLOG', payload)
+
+      return {
+        success: true
+      }
     } catch (error) {
       return {
         success: false
