@@ -3,8 +3,13 @@ export default {
     commit
   }, payload) {
     try {
-      await this.$axios.$post('https://nuxt-blog-6b95b.firebaseio.com/data.json', payload)
-      await commit('ADD_DATA', payload)
+      const id = await this.$axios.$post('https://nuxt-blog-6b95b.firebaseio.com/data.json', payload).then(res => {
+        return res.name
+      })
+      await commit('ADD_DATA', {
+        ...payload,
+        id
+      })
       return {
         success: true
       }
