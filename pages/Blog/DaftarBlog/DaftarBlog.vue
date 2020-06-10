@@ -12,7 +12,7 @@
     </v-row>
     <v-row>
       <v-col>
-        <DaftarBlog allblog :isadmin="(auth === null ) ? false : true" />
+        <DaftarBlog allblog :isadmin="(auth === null ) ? false : true" :data="blog" />
       </v-col>
     </v-row>
   </div>

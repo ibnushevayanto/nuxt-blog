@@ -14,7 +14,7 @@
     </v-row>
     <v-row>
       <v-col class="d-flex justify-center">
-        <FormBlog />
+        <FormBlog @submit="submit" :loading="loadingrequest" />
       </v-col>
     </v-row>
   </div>

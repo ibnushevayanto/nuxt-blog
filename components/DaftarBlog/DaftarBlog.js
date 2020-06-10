@@ -8,6 +8,10 @@ export default {
     isadmin: {
       default: false,
       type: Boolean
+    },
+    data: {
+      default: [],
+      type: Array
     }
   }
 }

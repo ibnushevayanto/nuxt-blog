@@ -1,29 +1,25 @@
 <template>
   <div>
     <v-row justify="center">
-      <v-col cols="4" v-for="(data, index) in 3" :key="index">
+      <v-col cols="4" v-for="(data, index) in data" :key="index">
         <v-card flat>
-          <v-img
-            src="https://images.unsplash.com/photo-1524678714210-9917a6c619c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-          ></v-img>
-          <v-card-title>Tips Manajemen Waktu Untuk Pegawai Agar Tetap Produktif</v-card-title>
+          <v-img :src="data.urlimage"></v-img>
+          <v-card-title>{{ data.title }}</v-card-title>
           <v-card-text>
-            <div
-              class="review-text"
-            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias mollitia optio est omnis neque dignissimos quis itaque sit aut, architecto vel eius, nam tenetur non illum porro id laboriosam? Incidunt!</div>
+            <div class="review-text">{{ data.content }}</div>
           </v-card-text>
           <v-card-actions class="d-flex justify-space-between align-center">
             <v-btn
               class="text-capitalize"
               text
-              @click="$router.push({name: 'detail-blog', params: {id: index}})"
+              @click="$router.push({name: 'detail-blog', params: {id: data.id}})"
             >Read More</v-btn>
             <div v-if="isadmin">
               <v-btn
                 icon
                 color="black"
                 x-small
-                @click="$router.push({name: 'ubah-blog', params: {id: index}})"
+                @click="$router.push({name: 'ubah-blog', params: {id: data.id}})"
               >
                 <v-icon>mdi-pencil</v-icon>
               </v-btn>
@@ -34,10 +30,21 @@
           </v-card-actions>
         </v-card>
       </v-col>
+      <v-col v-if="data.length === 0">
+        <v-card flat tile style="border: 1px solid black;">
+          <v-card-text class="text-center">Blog is empty</v-card-text>
+        </v-card>
+      </v-col>
     </v-row>
     <v-row v-if="!allblog">
       <v-col>
-        <v-btn block depressed tile @click="$router.push({name: 'blog'})">More</v-btn>
+        <v-btn
+          block
+          depressed
+          tile
+          @click="$router.push({name: 'blog'})"
+          v-if="data.length > 3"
+        >More</v-btn>
       </v-col>
     </v-row>
   </div>

@@ -4,14 +4,6 @@ import {
 } from "vuex";
 
 export default {
-  asyncData(params, callback) {
-    console.log(params)
-    setTimeout(() => {
-      callback(null, {
-        success: true
-      })
-    }, 1000);
-  },
   components: {
     DaftarBlog
   },
@@ -19,6 +11,16 @@ export default {
     ...mapState({
       auth: state => state.auth
     })
+  },
+  async asyncData({
+    store
+  }) {
+    const blog = await store.dispatch('Blog/loadblog')
+
+    return {
+      blog: blog.data
+    }
+
   },
   data: () => ({
     title: 'Asu'
