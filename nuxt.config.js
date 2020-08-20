@@ -1,34 +1,37 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from "vuetify/es5/util/colors";
 
 export default {
-  mode: 'universal',
+  mode: "universal",
   /*
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
-    meta: [{
-        charset: 'utf-8'
+    titleTemplate: "%s - " + process.env.npm_package_name,
+    title: process.env.npm_package_name || "",
+    meta: [
+      {
+        charset: "utf-8"
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        name: "viewport",
+        content: "width=device-width, initial-scale=1"
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
+        hid: "description",
+        name: "description",
+        content: process.env.npm_package_description || ""
       }
     ],
-    link: [{
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: '/favicon.ico'
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico"
       },
       {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'
+        rel: "stylesheet",
+        href:
+          "https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
       }
     ]
   },
@@ -36,42 +39,45 @@ export default {
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#FCC1C1'
+    color: "#000",
+    height: "5px",
+    duration: 30000
   },
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/style/style.css'
-  ],
+  css: ["~/assets/style/style.css"],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ["~/plugins/axios"],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
-    '@nuxtjs/vuetify',
+    "@nuxtjs/vuetify",
+    "@nuxtjs/dotenv",
     [
       "@nuxtjs/router",
       {
         path: "./router"
       }
-    ],
+    ]
   ],
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    '@nuxtjs/axios',
-  ],
+  modules: ["@nuxtjs/axios"],
+  dotenv: {
+    systemvars: true,
+    filename: ".env." + process.env.NODE_ENV
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ["~/assets/variables.scss"],
     treeShake: true,
     theme: {
       dark: false,
@@ -98,6 +104,6 @@ export default {
     extend(config, ctx) {}
   },
   server: {
-    host: '192.168.0.15'
+    host: "192.168.0.15"
   }
-}
+};

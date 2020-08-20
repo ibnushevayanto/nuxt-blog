@@ -5,7 +5,8 @@ export default {
     AppCarousel,
     DaftarBlog
   },
-  data: () => ({
-
-  })
+  data: () => ({}),
+  created() {
+    console.log(process.env.BASE_URL);
+  }
 };
