@@ -8,25 +8,28 @@
           class="text-capitalize font-weight-medium"
           active-class="active-menu"
           tile
-          :to="{name: 'landing'}"
-        >Home</v-btn>
+          :to="{ name: 'landing' }"
+          >Home</v-btn
+        >
         <v-btn
           text
           class="text-capitalize font-weight-medium"
           active-class="active-menu"
           tile
-          :to="{name: 'about'}"
-        >About</v-btn>
+          :to="{ name: 'about' }"
+          >About</v-btn
+        >
         <v-btn
           text
           class="text-capitalize font-weight-medium"
           active-class="active-menu"
           tile
-          :to="{name: 'blog'}"
-        >Blog</v-btn>
+          :to="{ name: 'blog' }"
+          >Blog</v-btn
+        >
       </div>
       <div>
-        <v-btn icon color="black" :to="{name: 'auth'}">
+        <v-btn icon color="black" :to="{ name: 'auth' }">
           <v-icon>mdi-login-variant</v-icon>
         </v-btn>
       </div>

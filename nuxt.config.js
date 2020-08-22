@@ -40,8 +40,8 @@ export default {
    */
   loading: {
     color: "#000",
-    height: "5px",
-    duration: 30000
+    height: "3px",
+    duration: 5000
   },
   /*
    ** Global CSS

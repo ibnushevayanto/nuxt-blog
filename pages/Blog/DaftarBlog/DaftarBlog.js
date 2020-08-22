@@ -1,25 +1,26 @@
 import DaftarBlog from "@/components/DaftarBlog/DaftarBlog.vue";
+import TagList from "@/components/TagList/TagList.vue";
 import { mapState } from "vuex";
 
 export default {
   components: {
-    DaftarBlog
+    DaftarBlog,
+    TagList
   },
   computed: {
     ...mapState({
       auth: state => state.auth
     })
   },
+  created() {},
   async asyncData({ store }) {
-    const blog = await store.dispatch("Blog/loadblog");
-    const tags = await store.dispatch("Tag/load");
+    await store.dispatch("Blog/loadblog");
+    await store.dispatch("Tag/load");
 
     return {
-      blog: blog.data,
-      tags: tags.data
+      blog: store.getters["Blog/getBlog"],
+      tags: store.getters["Tag/getTag"]
     };
   },
-  data: () => ({
-    title: "Asu"
-  })
+  data: () => ({})
 };

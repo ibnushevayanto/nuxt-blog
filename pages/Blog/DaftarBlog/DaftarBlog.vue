@@ -2,24 +2,8 @@
   <div>
     <v-row>
       <v-col class="pt-0">
-        <div class="mb-3 text-center">
-          <v-btn
-            color="black"
-            depressed
-            rounded
-            class="white--text text-capitalize font-weight-bold mr-1"
-            >All</v-btn
-          >
-          <v-btn
-            color="black"
-            depressed
-            rounded
-            class="white--text text-capitalize font-weight-bold mr-1"
-            v-for="tag in tags"
-            :key="tag.id"
-            >{{ tag.name }}</v-btn
-          >
-        </div>
+        <TagList :data="tags" :indicator="$route.params.jenis" />
+
         <!-- Row Title Dan Button Tambah -->
         <div class="d-flex justify-space-between">
           <div class="display-1 font-weight-medium">All Blog</div>
