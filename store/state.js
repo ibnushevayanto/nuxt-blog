@@ -1,3 +1,5 @@
 export default () => ({
-  auth: null
+  auth: {
+    isadmin: true
+  }
 });
