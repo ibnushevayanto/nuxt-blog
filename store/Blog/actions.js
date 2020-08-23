@@ -19,40 +19,51 @@ export default {
       };
     }
   },
-  async loadblog({ state, commit }, payload) {
-    if (state.data.length === 0) {
-      try {
-        // if (state.data.length === 0) {
-        //   const blog = await this.$axios.$get('https://nuxt-blog-6b95b.firebaseio.com/data.json').then(res => {
-        //     const postsArray = []
+  async loadblog({ rootState, state, commit }, payload) {
+    // if (state.data.length === 0) {
 
-        //     for (const key in res) {
-        //       postsArray.push({
-        //         ...res[key],
-        //         id: key
-        //       })
-        //     }
+    try {
+      /*
+      ? Logic Penggunaan Link Request
 
-        //     return postsArray
-        //   })
-
-        //   await commit('SET_DATA', blog)
-        // }
-
-        const blog = await this.$axios.$get("v1/blogpost");
-
-        await commit("SET_DATA", blog);
-
-        return {
-          success: true,
-          data: blog
-        };
-      } catch (error) {
-        return {
-          success: false
-        };
+       * 1. Jika Payload Bernilai Tidak null
+       * 1.1. Memfilter Array Dari State data Pada Tag
+       * 1.2. Jika Saat Filter Datanya Ada Maka
+       * 1.2.1. payload Akan Diisi Dengan id Dari Sebuah Tag
+       * 1.3. Jika Tidak Ada Maka Payload Saya Asumsikan Adalah Sebuah Link
+       * 
+       * 2. Jika Payload Bernilai Null
+       * 2.1. Url Pada Request Tidak Akan Mengirimkan Parameter Apapun
+       */
+      if (payload !== null) {
+        const searchData = rootState.Tag.data.filter(
+          arr => arr.name.toLowerCase() === payload
+        );
+        if (searchData.length > 0) {
+          payload = "v1/blogpost/" + searchData[0].id;
+        }
+      } else {
+        payload = "v1/blogpost";
       }
+
+      const blog = await this.$axios.$get(payload);
+
+      // ? End Logic Penggunaan Link Request
+
+      await commit("SET_DATA", blog.data);
+      await commit("SET_PAGINATION_META", blog.meta);
+      await commit("SET_PAGINATION_LINKS", blog.links);
+
+      return {
+        success: true,
+        data: blog.data
+      };
+    } catch (error) {
+      return {
+        success: false
+      };
     }
+    // }
   },
   async detailblog(context, payload) {
     try {

@@ -1,3 +1,5 @@
 export default () => ({
-  data: []
-})
+  data: [],
+  paginationMeta: {},
+  paginationLink: {}
+});

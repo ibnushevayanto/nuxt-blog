@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row justify="center">
+    <v-row>
       <v-col cols="4" v-for="(data, index) in data" :key="index">
         <v-card flat height="100%">
           <v-img :src="data.urlimage" v-if="data.urlimage !== null"></v-img>
@@ -11,7 +11,8 @@
           <v-card-actions class="d-flex justify-space-between align-center">
             <v-btn
               class="text-capitalize"
-              text
+              depressed
+              color="black white--text"
               @click="
                 $router.push({ name: 'detail-blog', params: { id: data.id } })
               "

@@ -4,9 +4,5 @@ export default {
   components: {
     AppCarousel,
     DaftarBlog
-  },
-  data: () => ({}),
-  created() {
-    console.log(process.env.BASE_URL);
   }
 };

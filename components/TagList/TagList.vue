@@ -11,17 +11,14 @@
         },
         'text-capitalize font-weight-bold ma-1'
       ]"
-      :to="{ name: 'daftar-blog', params: { jenis: 'all' } }"
+      @click="pindahPage('all')"
       >All</v-btn
     >
     <v-btn
       :color="indicator === tag.name.toLowerCase() ? 'black' : 'white'"
       depressed
       rounded
-      :to="{
-        name: 'daftar-blog',
-        params: { jenis: tag.name.toLowerCase() }
-      }"
+      @click="pindahPage(tag.name.toLowerCase())"
       :class="[
         {
           'white--text': indicator === tag.name.toLowerCase(),
