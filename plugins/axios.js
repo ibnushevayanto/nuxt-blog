@@ -3,7 +3,7 @@ const Cookie = process.client ? require("js-cookie") : undefined;
 export default function({ $axios, store, redirect }) {
   const auth = store.state.auth;
   if (auth !== null) {
-    $axios.setHeader("TTOKEN", "Kontol");
+    $axios.setHeader("Authorization", `Bearer ${auth.api_token}`);
   }
 
   /*
