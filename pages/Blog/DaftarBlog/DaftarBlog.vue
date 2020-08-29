@@ -17,7 +17,7 @@
         />
 
         <!-- Row Title Dan Button Tambah -->
-        <div class="d-flex justify-space-between mt-8 pa-5">
+        <div class="d-flex justify-space-between mt-8">
           <div class="display-1 font-weight-medium text-capitalize">
             {{ activeTag }} Blog
           </div>

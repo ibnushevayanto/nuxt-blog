@@ -11,6 +11,10 @@
   background-color: white;
 }
 
+.white-active-class-background::before {
+  background-color: white;
+}
+
 .active-menu::before {
   background-color: white;
 }

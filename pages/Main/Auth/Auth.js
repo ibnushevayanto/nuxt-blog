@@ -1,20 +1,20 @@
 export default {
   data: () => ({
-    form: {
-      login: true
-    },
     formData: {
       email: "",
       password: ""
-    }
+    },
+    loading: false
   }),
   methods: {
     prosesLogin() {
-      if (this.form.login) {
-        this.$store.dispatch("login", this.formData);
-      } else {
-        alert("register masih belum dibuat");
-      }
+      this.loading = true;
+      this.$store.dispatch("login", this.formData).then(res => {
+        this.loading = false;
+        if (res.success) {
+          this.$router.push({ name: "landing" });
+        }
+      });
     }
   }
 };
