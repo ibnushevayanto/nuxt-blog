@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <div class="d-flex justify-space-between pa-5 align-center">
-      <v-toolbar-title>Blog</v-toolbar-title>
-      <div>
+      <v-toolbar-title style="width: 33%">Blog</v-toolbar-title>
+      <div style="width: 33%" class="d-flex justify-center">
         <v-btn
           text
           class="text-capitalize font-weight-medium"
@@ -28,7 +28,7 @@
           >Blog</v-btn
         >
       </div>
-      <div>
+      <div style="width: 33%" class="d-flex justify-end">
         <v-btn
           color="black white--text"
           depressed

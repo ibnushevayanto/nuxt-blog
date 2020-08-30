@@ -3,18 +3,20 @@
     <v-row>
       <v-col class="pt-0">
         <div>
-          <nuxt-link :to="{name: 'blog'}" style="color: #000">
+          <nuxt-link :to="{ name: 'blog' }" style="color: #000">
             <div class="d-flex align-center">
               <v-icon color="black">mdi-chevron-left</v-icon>
-              <div class="headline font-weight-medium">Detail Blog</div>
+              <div class="button font-weight-medium">Detail Blog</div>
             </div>
           </nuxt-link>
         </div>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col>
-        <div class="display-1 font-weight-medium text-center">{{ data.title }}</div>
+    <v-row justify="center">
+      <v-col lg="8">
+        <div class="display-1 font-weight-medium text-center">
+          {{ data.title }}
+        </div>
         <div class="d-flex justify-center mt-5">
           <div>
             <v-img :src="data.urlimage" width="500"></v-img>
@@ -26,5 +28,4 @@
   </div>
 </template>
 
-<script src="./DetailBlog.js">
-</script>
+<script src="./DetailBlog.js"></script>

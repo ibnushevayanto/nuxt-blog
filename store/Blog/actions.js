@@ -67,17 +67,13 @@ export default {
   },
   async detailblog(context, payload) {
     try {
-      const data = await this.$axios
-        .$get(
-          "https://nuxt-blog-6b95b.firebaseio.com/data/" + payload + ".json"
-        )
-        .then(res => {
-          return res;
-        });
+      const blogpost = await this.$axios.$get("v1/blogpost/detail/" + payload);
+
+      console.log(blogpost);
 
       return {
         success: true,
-        data
+        data: blogpost
       };
     } catch (error) {
       return {
