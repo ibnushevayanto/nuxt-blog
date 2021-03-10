@@ -13,7 +13,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.1",
     "cookie": "^0.4.1",
-    "elliptic": ">=6.5.3",
+    "elliptic": ">=6.5.4",
     "js-cookie": "^2.2.1",
     "lodash": ">=4.17.19",
     "nuxt": "^2.14.3"
